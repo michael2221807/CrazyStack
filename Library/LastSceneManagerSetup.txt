@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c071d0517a47fc33ee9725c2279ef0c764aa3a5219eaa1ae9238bcfae736dd6e
-size 83
+sceneSetups:
+- path: Assets/Level3.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
