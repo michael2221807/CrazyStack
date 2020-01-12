@@ -4,11 +4,13 @@ public class PlayerCollision : MonoBehaviour
 {
     public PlayerMovement movement;
 
-    private void OnCollisionEnter(Collision collisionInfo)
+    public GManager gameManager;
+
+    public void OnCollisionEnter(Collision collisionInfo)
     {
         //Debug.Log(collisionInfo.collider.name);
 
-        if (collisionInfo.collider.tag == "Obstacle")
+        if (collisionInfo.collider.tag == "Obstacle" && !gameManager.is_Invincible)
         {
             Debug.Log("We hit an obstacle!");
             movement.enabled = false;

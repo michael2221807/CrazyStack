@@ -16,9 +16,13 @@ public class AwardBlock2 : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter()
+    private void OnTriggerEnter(Collider other)
     {
-        gameManager.GetAward2();
+        if (other.gameObject.tag != "Wall")
+        {
+            gameManager.GetAward2();
+            
+        }
     }
 
     private void floating()

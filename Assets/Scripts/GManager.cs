@@ -7,17 +7,25 @@ public class GManager : MonoBehaviour
 
     public float restartDelay = 2f;
 
-    public float showSpeedUpIconDelay = 1f;
+    public float showIconDelay = 1f;
 
-    public float forwardForce = 500f;
+    public float forwardForceSmall = 500f;
+
+    public float forwardForceBig = 10000f;
 
     public GameObject completeLevelUI;
 
     public GameObject accelerate;
 
-    public GameObject awardBlock;
+    public GameObject invincible;
 
     public Rigidbody player;
+
+    public PlayerColor playerColor;
+
+    public bool is_Invincible = false;
+
+    public float invincibleDelay = 2.5f;
 
     public void EndGame()
     {
@@ -47,9 +55,9 @@ public class GManager : MonoBehaviour
     {
         Debug.Log("Awarded!");
         ShowSpeedUpIcon();
-        AccleratePlayer();
-        Invoke("HideSpeedUpIcon", showSpeedUpIconDelay);
-        Debug.Log("Finish Awarding!");
+        AccleratePlayer(forwardForceSmall);
+        Invoke("HideSpeedUpIcon", showIconDelay);
+        //Debug.Log("Finish Awarding!");
 
 
     }
@@ -64,7 +72,7 @@ public class GManager : MonoBehaviour
         accelerate.SetActive(false);
     }
 
-    public void AccleratePlayer()
+    public void AccleratePlayer(float forwardForce)
     {
         player.AddForce(0, 0, forwardForce * Time.deltaTime, ForceMode.VelocityChange);
     }
@@ -72,8 +80,42 @@ public class GManager : MonoBehaviour
     public void GetAward2()
     {
         Debug.Log("Awarded2!");
-        
+        InvincibleOn();
+        ShowInvincibleIcon();
+        AccleratePlayer(forwardForceBig);
+        ColorChangeOn();
+        Invoke("ShowInvincibleIcon", showIconDelay);
+        Invoke("InvincibleOff", invincibleDelay);
+        Invoke("ColorChangeOff", invincibleDelay);
     }
 
+    public void InvincibleOn()
+    {
+        is_Invincible = true;
+    }
     
+    public void InvincibleOff()
+    {
+        is_Invincible = false;
+    }
+
+    void ColorChangeOff()
+    {
+        playerColor.ColorChangeOff();
+    }
+
+    void ColorChangeOn()
+    {
+        playerColor.ColorChangeOn();
+    }
+
+    public void ShowInvincibleIcon()
+    {
+        invincible.SetActive(true);
+    }
+
+    public void HideInvincibleIcon()
+    {
+        invincible.SetActive(false);
+    }
 }
