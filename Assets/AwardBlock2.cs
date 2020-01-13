@@ -29,12 +29,12 @@ public class AwardBlock2 : MonoBehaviour
     {
         if (awardBlock.transform.position.y > height)
         {
-            awardBlock.GetComponent<Rigidbody>().AddForce(Vector3.up * 5f);
+            awardBlock.GetComponent<Rigidbody>().AddForce(Vector3.down * 10f);
             
         }
         if (awardBlock.transform.position.y <= height)
         {
-            awardBlock.GetComponent<Rigidbody>().AddForce(Vector3.up * 150f);
+            awardBlock.GetComponent<Rigidbody>().AddForce(Vector3.up * 98f);
 
         }
     }

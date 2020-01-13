@@ -26087,6 +26087,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 514468517}
   offset: {x: 0, y: 1.5, z: -6}
+  defaultOffset: {x: 0, y: 1, z: -5}
+  is_Zoom: 0
+  maxDistance: 0
+  deltaT: 0
+  reset: 0
+  t: 0
 --- !u!1001 &964359683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55537,6 +55543,11 @@ PrefabInstance:
     - target: {fileID: 889144406249471045, guid: e2527e58951d842b2b1b8147dd52f98c,
         type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 889144406249471045, guid: e2527e58951d842b2b1b8147dd52f98c,
+        type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []

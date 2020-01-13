@@ -25,7 +25,9 @@ public class GManager : MonoBehaviour
 
     public bool is_Invincible = false;
 
-    public float invincibleDelay = 2.5f;
+    public float invincibleDelay = 1.5f;
+
+    public FollowPlayer camera;
 
     public void EndGame()
     {
@@ -56,7 +58,9 @@ public class GManager : MonoBehaviour
         Debug.Log("Awarded!");
         ShowSpeedUpIcon();
         AccleratePlayer(forwardForceSmall);
+        Zoom(-0.15f, 0.5f);
         Invoke("HideSpeedUpIcon", showIconDelay);
+        Invoke("ResetOffset", invincibleDelay);
         //Debug.Log("Finish Awarding!");
 
 
@@ -84,9 +88,13 @@ public class GManager : MonoBehaviour
         ShowInvincibleIcon();
         AccleratePlayer(forwardForceBig);
         ColorChangeOn();
-        Invoke("ShowInvincibleIcon", showIconDelay);
+        Zoom(-0.25f, 0.5f);
+        Debug.Log("ZoomOut!");
+
+        Invoke("HideInvincibleIcon", showIconDelay);
         Invoke("InvincibleOff", invincibleDelay);
         Invoke("ColorChangeOff", invincibleDelay);
+        Invoke("ResetOffset", invincibleDelay);
     }
 
     public void InvincibleOn()
@@ -117,5 +125,21 @@ public class GManager : MonoBehaviour
     public void HideInvincibleIcon()
     {
         invincible.SetActive(false);
+    }
+
+    public void Zoom(float maxDistance, float deltaT)
+    {
+        camera.Zoom(maxDistance, deltaT);
+    }
+
+
+    public void ResetOffset()
+    {
+        camera.ResetOffset();
+    }
+
+    public void SmoothZoom(float magnify)
+    {
+
     }
 }

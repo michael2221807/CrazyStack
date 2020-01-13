@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1374,6 +1374,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 514468517}
   offset: {x: 0, y: 1, z: -5}
+  defaultOffset: {x: 0, y: 1, z: -5}
+  is_Zoom: 0
+  maxDistance: 0
+  deltaT: 0
+  reset: 0
+  t: 0
 --- !u!1 &1010987749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2542,6 +2548,11 @@ PrefabInstance:
     - target: {fileID: 889144406249471045, guid: e2527e58951d842b2b1b8147dd52f98c,
         type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 889144406249471045, guid: e2527e58951d842b2b1b8147dd52f98c,
+        type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
