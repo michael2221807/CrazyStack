@@ -1,7 +1,7 @@
-# StupidRush
+# CrazyStack
 
-Press A to move left
+## Press space to jump!
 
-Press D to move right
 
-Just Rush It!
+
+
