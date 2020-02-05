@@ -17,7 +17,10 @@ public class FollowPlayer : MonoBehaviour
     {
         if (!is_Zoom && !reset)
         {
-            transform.position = player.position + offset;
+            Vector3 zOnly = player.position;
+            zOnly.y = 0;
+
+            transform.position = zOnly + offset;
         }
         else if (is_Zoom)
         {

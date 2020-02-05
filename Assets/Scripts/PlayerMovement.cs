@@ -5,45 +5,74 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody rb;
 
-    public float forwardForce = 2000f;
+    public float upwardForce = 20f;
 
-    public float sidewayForce = 500f;
+    public bool isJump = false;
+
+    public Rigidbody extendBlock;
+
+    public float v = 25f;
 
     // Start is called before the first frame update
     void Start()
     {
         //rb.useGravity = false;
         //rb.AddForce(0, 200, 500);
+        //isGrounded = true;
+        rb.velocity = new Vector3(0f, 0f, 100f);
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        //rb.AddForce(0, 0, 2000 * Time.deltaTime);
-    }
 
-    //Update that works with physics better.
     void FixedUpdate()
     {
+
+        Vector3 ve = rb.velocity.normalized;
+        ve *= v;
+        rb.velocity = ve;
+
         //Debug.Log(rb.velocity);
 
-        rb.AddForce(0, 0, forwardForce * Time.deltaTime);
-
-        if (Input.GetKey("d"))
-        {
-            rb.AddForce(sidewayForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-        }
-
-        if(Input.GetKey("a"))
-        {
-            rb.AddForce(-sidewayForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-        }
+   
 
         if (rb.position.y <= -1f)
         {
             FindObjectOfType<GManager>().EndGame();
 
         }
+
+        if (Input.GetKey("space"))
+        {
+            jump();
+        }
+
+
+    }
+    private void jump()
+    {
+        if (!isJump)
+        {
+            isJump = true;
+            Debug.Log("Jump!");
+
+            rb.AddForce(new Vector3(0f, 1f, 0f) * upwardForce, ForceMode.VelocityChange);
+            Invoke("SpawnBlock", 0.10f);
+            Invoke("resetIsJumping", 0.3f);
+
+
+        }
+    }
+
+    private void resetIsJumping()
+    {
+        isJump = false;
+    }
+
+    private void SpawnBlock()
+    {
+        Vector3 offset = new Vector3(0, -1.2f, 0f);
+        Instantiate(extendBlock, rb.position + offset, rb.rotation);
     }
 
 

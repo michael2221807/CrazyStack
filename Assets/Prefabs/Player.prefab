@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 889144406249471046}
   - component: {fileID: 889144406249471047}
   - component: {fileID: 889144406249471044}
-  - component: {fileID: 889144406249471043}
   - component: {fileID: 889144406249471042}
   m_Layer: 0
   m_Name: Player
@@ -58,6 +57,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -93,8 +93,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.8604057, z: 1}
+  m_Center: {x: 0, y: -0.06979716, z: 0}
 --- !u!54 &889144406249471044
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -111,21 +111,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &889144406249471043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889144406249471045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4945e4c5c41140ea99570b418aabdbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 889144406249471044}
-  forwardForce: 3300
-  sidewayForce: 50
 --- !u!114 &889144406249471042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,5 +123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30104b3d862c649d1a1bd02c1601d11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 889144406249471043}
+  movement: {fileID: 0}
   gameManager: {fileID: 0}
+  frontHitDetector: {fileID: 0}
+  radius: 0.1
+  obsMask:
+    serializedVersion: 2
+    m_Bits: 0

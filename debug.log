@@ -1,2 +1,13 @@
 [0124/073914.792:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0124/073914.792:ERROR:crash_report_database_win.cc(469)] failed to stat report
+<<<<<<< HEAD
+[0124/122244.590:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0124/122244.590:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0127/093134.164:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0127/093134.164:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0127/093312.622:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0127/093312.623:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0129/115327.474:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0129/115327.474:ERROR:crash_report_database_win.cc(469)] failed to stat report
+=======
+>>>>>>> f9f157afdcb0caefcd6b115ee63016fc571e80c3
