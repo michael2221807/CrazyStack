@@ -14,9 +14,17 @@ public class DisplayLevelPassed : MonoBehaviour
 
     private int levelPassed;
 
+    private int highestScore;
+
+    private bool notDie;
+
+    private int prevHighest;
+
     private string DATA_PATH = "/GameData.lai";
 
-    public Text LevelText;
+
+
+    public Text LevelPassed;
 
     void Start()
     {
@@ -25,15 +33,22 @@ public class DisplayLevelPassed : MonoBehaviour
         {
             curLev = gameData.CurLevel;
             levelPassed = gameData.LevelPassed;
+            highestScore = gameData.HighestScore;
+            notDie = gameData.NotDie;
+            prevHighest = gameData.PreHighest;
         }
         else
         {
             curLev = 1;
             levelPassed = 0;
-            gameData = new GameData(curLev, levelPassed);
+            highestScore = 0;
+            notDie = true;
+            prevHighest = 0;
+            gameData = new GameData(curLev, levelPassed, highestScore, notDie, prevHighest);
         }
 
-        LevelText.text = levelPassed.ToString();
+       
+        LevelPassed.text = levelPassed.ToString();
     }
 
     void SaveData()

@@ -17,7 +17,7 @@ public class PlayerColor : MonoBehaviour
     {
         if (is_ColorChange)
         {
-            Debug.Log("Color is changing!");
+            //Debug.Log("Color is changing!");
             player.GetComponent<MeshRenderer>().material.color = Color.Lerp(defaultColor, Color.red, Mathf.PingPong(Time.time * 2.5f, 1));
 
         }

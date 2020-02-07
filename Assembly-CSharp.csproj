@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\Menu\Menu.cs" />
     <Compile Include="Assets\Scripts\Credits.cs" />
+    <Compile Include="Assets\Scripts\DisplayHighest.cs" />
     <Compile Include="Assets\Scripts\DisplayLevelPassed.cs" />
     <Compile Include="Assets\Scripts\EndTrigger.cs" />
     <Compile Include="Assets\Scripts\ExplosionBlock.cs" />

@@ -11,7 +11,20 @@ public class LevelComplete : MonoBehaviour
 
     private int levelPassed;
 
+    private int highestScore;
+
+    private bool notDie;
+
+    private int prevHighest;
+
     private string DATA_PATH = "/GameData.lai";
+
+    private GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
     public void LoadNextLevel()
     {
         LoadData();
@@ -19,9 +32,16 @@ public class LevelComplete : MonoBehaviour
         if (gameData != null)
         {
             levelPassed = gameData.LevelPassed;
-        }else
+
+            highestScore = gameData.HighestScore;
+
+            notDie = gameData.NotDie;
+
+            prevHighest = gameData.PreHighest;
+        }
+        else
         {
-            gameData = new GameData(1, 0);
+            gameData = new GameData(1, 0, 0, true, 0);
         }
 
 
@@ -35,7 +55,22 @@ public class LevelComplete : MonoBehaviour
         
         SceneManager.LoadScene(nextLevel);
 
-        gameData = new GameData(nextLevel, levelPassed + 1);
+        notDie = true;
+
+        int playerDistance = Convert.ToInt32(player.transform.position.z + 2355);
+
+        if (highestScore < prevHighest + playerDistance)
+        {
+            highestScore = prevHighest + playerDistance;
+            prevHighest = highestScore;
+        }
+        else if (highestScore == 0)
+        {
+            highestScore = playerDistance;
+            prevHighest = 0;
+        }
+
+        gameData = new GameData(nextLevel, levelPassed + 1, highestScore, notDie, prevHighest);
 
         SaveData();
     }
@@ -58,7 +93,7 @@ public class LevelComplete : MonoBehaviour
         {
             if (e != null)
             {
-                Debug.LogError("Save Fail!");
+                Debug.LogError("Save Fail level complete!");
             }
         }
         finally

@@ -1,16 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.UI;
 
-public class StartGame : MonoBehaviour
+public class DisplayHighest : MonoBehaviour
 {
-    public Button startGameButton;
-
     private GameData gameData;
 
     private int curLev;
@@ -25,11 +22,12 @@ public class StartGame : MonoBehaviour
 
     private string DATA_PATH = "/GameData.lai";
 
+    public Text HighestScore;
 
-    // Start is called before the first frame update
+ 
+
     void Start()
     {
-        startGameButton.onClick.AddListener(TaskOnClick);
         LoadData();
         if (gameData != null)
         {
@@ -43,19 +41,16 @@ public class StartGame : MonoBehaviour
         {
             curLev = 1;
             levelPassed = 0;
-            notDie = true;
             highestScore = 0;
+            notDie = true;
             prevHighest = 0;
             gameData = new GameData(curLev, levelPassed, highestScore, notDie, prevHighest);
-            Debug.Log("here!");
         }
-        SaveData();
+
+        HighestScore.text = highestScore.ToString();
     }
 
-    void TaskOnClick()
-    {
-        SceneManager.LoadScene(curLev);
-    }
+    
 
     void SaveData()
     {
@@ -76,7 +71,7 @@ public class StartGame : MonoBehaviour
         {
             if (e != null)
             {
-                Debug.LogError("Save Fail!" + e);
+                Debug.LogError("Save Fail!");
             }
         }
         finally

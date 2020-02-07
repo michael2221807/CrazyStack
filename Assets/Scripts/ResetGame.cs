@@ -17,6 +17,12 @@ public class ResetGame : MonoBehaviour
 
     private int levelPassed;
 
+    private int highestScore;
+
+    private bool notDie;
+
+    private int prevHighest;
+
     private string DATA_PATH = "/GameData.lai";
 
 
@@ -31,7 +37,10 @@ public class ResetGame : MonoBehaviour
     {
         curLev = 1;
         levelPassed = 0;
-        gameData = new GameData(curLev, levelPassed);
+        highestScore = 0;
+        notDie = true;
+        prevHighest = 0;
+        gameData = new GameData(curLev, levelPassed, highestScore, notDie, prevHighest);
 
         SaveData();
     }

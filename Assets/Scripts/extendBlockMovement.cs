@@ -21,6 +21,8 @@ public class extendBlockMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        float playerPosition = player.transform.position.z;
+        float extendBlockPosition = extendBlock.transform.position.z;
         //extendBlock.AddForce(0, 0, forwardForce * Time.deltaTime, ForceMode.VelocityChange);
         Vector3 ve = player.velocity.normalized;
         ve.x = 0f;
@@ -28,6 +30,11 @@ public class extendBlockMovement : MonoBehaviour
         ve *= v;
         extendBlock.velocity = ve;
         down = -0.3f;
+
+        if ((playerPosition - extendBlockPosition) > 2)
+        {
+            extendBlock.gameObject.SetActive(false);
+        } 
     }
 
     //Make the downward velocity to zero if it is contacted with other objects
