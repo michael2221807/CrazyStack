@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isJump = false;
 
-    public Rigidbody extendBlock;
+    public GameObject extendBlock;
 
     public float v = 25f;
 
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
         //Debug.Log(rb.velocity);
 
-   
+
 
         if (rb.position.y <= -1f)
         {
@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        if (Input.GetKey("space"))
+        if (Input.GetKey("space") || (Input.touchCount > 0))
         {
             jump();
         }
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isJump)
         {
             isJump = true;
-            Debug.Log("Jump!");
+            //Debug.Log("Jump!");
 
             rb.AddForce(new Vector3(0f, 1f, 0f) * upwardForce, ForceMode.VelocityChange);
             Invoke("SpawnBlock", 0.10f);
@@ -73,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 offset = new Vector3(0, -1.2f, 0f);
         Instantiate(extendBlock, rb.position + offset, rb.rotation);
+        //extend.AddComponent<extendBlockMovement>();
     }
 
 

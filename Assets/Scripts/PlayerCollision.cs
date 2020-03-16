@@ -25,13 +25,13 @@ public class PlayerCollision : MonoBehaviour
 
             if (hitFront) //front
             {
-                Debug.Log("Hit front");
+                //Debug.Log("Hit front");
                 movement.enabled = false;
                 FindObjectOfType<GManager>().EndGame();
             }
             if (Mathf.Approximately(angle2, 180)) //top
             {
-                Debug.Log("Hit top");
+                //Debug.Log("Hit top");
                 movement.enabled = false;
                 FindObjectOfType<GManager>().EndGame();
             }

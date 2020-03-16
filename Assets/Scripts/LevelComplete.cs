@@ -46,11 +46,11 @@ public class LevelComplete : MonoBehaviour
 
 
         int curLevel = SceneManager.GetActiveScene().buildIndex;
-        int nextLevel = UnityEngine.Random.Range(1, 4);
+        int nextLevel = UnityEngine.Random.Range(1, 5);
 
         while (nextLevel == curLevel)
         {
-            nextLevel = UnityEngine.Random.Range(1, 4);
+            nextLevel = UnityEngine.Random.Range(1, 5);
         }
         
         SceneManager.LoadScene(nextLevel);
