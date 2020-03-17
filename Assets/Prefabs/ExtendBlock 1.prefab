@@ -117,7 +117,7 @@ MonoBehaviour:
     m_Bits: 512
   radius: 0.15
   v: 23
-  down: -0.6
+  down: -0.5
   lockZ: 1
 --- !u!54 &2823881852397604405
 Rigidbody:
