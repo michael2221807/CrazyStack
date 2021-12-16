@@ -41,7 +41,7 @@ public class StartGame : MonoBehaviour
         }
         else
         {
-            curLev = 1;
+            curLev = 5;
             levelPassed = 0;
             notDie = true;
             highestScore = 0;

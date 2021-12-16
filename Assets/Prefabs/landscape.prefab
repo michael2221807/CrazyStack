@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7601746597011709248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7601746597011709250}
+  - component: {fileID: 7601746597011709251}
+  m_Layer: 0
+  m_Name: landscape
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7601746597011709250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7601746597011709248}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -50, y: -20, z: -2355}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7601746597011709251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7601746597011709248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb1c8710575e4944db0708204e711a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initPosition: {x: -29, y: 0.5, z: -2250}
+  gameSeed: 0
+  isUniform: 1
+  curSeed: 0
+  gameSize: 50
+  treeScaleMin: 1
+  treeScaleMax: 1.5
+  rockScaleMin: 0.5
+  rockScaleMax: 0.8
+  grassScaleMin: 0.5
+  grassScaleMax: 1.1
+  groundObjects:
+  - {fileID: 7585353587198959264, guid: 06dfee5f67a265b4facd0b4d89e4f63a, type: 3}
+  rockObjects:
+  - {fileID: 121228, guid: a63dde1009051ee4e9403bb73d33850f, type: 3}
+  - {fileID: 144900, guid: c448a1f9cb1704a4f9a77b060f4bca01, type: 3}
+  - {fileID: 130372, guid: cf117c497a194d245b737bb067cae21b, type: 3}
+  rockCount: 100
+  treeObjects:
+  - {fileID: 157124, guid: 46100f42314ce604a9dd8b4c5d9d9fe5, type: 3}
+  - {fileID: 108626, guid: aebf6f97c0a04034f8617132e3403e36, type: 3}
+  - {fileID: 103298, guid: e42c3d98884b94243b78f6573b1bdde2, type: 3}
+  - {fileID: 126096, guid: 702c67ac97876154d955324d8cfb8f6c, type: 3}
+  - {fileID: 199218, guid: 97a5ee58c04c3394eb03f72d9f86827a, type: 3}
+  treeCount: 50
+  grassObjects:
+  - {fileID: 161660, guid: 9645ca818a7389448bf5b519eb5d2ffc, type: 3}
+  - {fileID: 134158, guid: 09645f9be38fec649aee4f32bd2d45b4, type: 3}
+  - {fileID: 178966, guid: a3c536eefa9ffde4b87c91bafd0100b8, type: 3}
+  grassCount: 200
+  isRotate: 0
+  groundScale: {x: 1, y: 1, z: 2}

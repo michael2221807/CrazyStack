@@ -55,9 +55,10 @@ public class extendBlockMovement : MonoBehaviour
         extendBlock.velocity = ve;
         down = -0.3f;
 
-        if ((playerPosition - extendBlockPosition) > 2)
+        if ((playerPosition - extendBlockPosition) > 1)
         {
-            extendBlock.gameObject.SetActive(false);
+            //extendBlock.gameObject.SetActive(false);
+            Destroy(extendBlock.gameObject);
         } 
     }
 
@@ -79,7 +80,7 @@ public class extendBlockMovement : MonoBehaviour
         if (hitFront)
         {
             lockZ = false;
-            Debug.Log("hit front?");
+            //Debug.Log("hit front?");
 
         }
         
